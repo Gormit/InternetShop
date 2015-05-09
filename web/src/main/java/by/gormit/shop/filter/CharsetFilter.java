@@ -13,7 +13,7 @@ public class CharsetFilter implements Filter{
     private String encoding;
 
     public void init(FilterConfig filterConfig) throws ServletException {
-        this.encoding = filterConfig.getInitParameter("reqestEncoding");
+        this.encoding = filterConfig.getInitParameter("encoding");
         if (this.encoding == null) {
             this.encoding = "cp1251";
         }

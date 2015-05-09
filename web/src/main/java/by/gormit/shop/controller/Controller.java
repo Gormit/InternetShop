@@ -1,8 +1,6 @@
 package by.gormit.shop.controller;
 
-import by.gormit.shop.command.Command;
-import by.gormit.shop.command.HelloCommand;
-import by.gormit.shop.command.LoginCommand;
+import by.gormit.shop.command.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +27,20 @@ public class Controller extends HttpServlet {
             command = new HelloCommand();
         } else if (param.equals("login")) {
             command = new LoginCommand();
+        } else if (param.equals("addGood")) {
+            command = new AddGoodCommand();
+        } else if (param.equals("saveGood")) {
+            command = new SaveGoodCommand();
+        } else if (param.equals("delGood")) {
+            req.setAttribute("id", req.getParameter("id"));
+            command = new DelGoodCommand();
+        } else if (param.equals("editGood")) {
+            req.setAttribute("id", req.getParameter("id"));
+            command = new EditGoodCommand();
+        } else if (param.equals("saveEditGood")) {
+            command = new SaveEditGoodCommand();
         }
+
 
         command.execute(req, resp);
     }

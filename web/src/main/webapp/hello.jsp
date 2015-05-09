@@ -27,7 +27,7 @@
     </td>
   </tr>
   <c:forEach var="good" items="${requestScope.goods}">
-    <tr><td>${good.name}</td></tr>
+    <tr><td><a href = "/shop/view?id=${good.id}">${good.name}</a></td></tr>
   </c:forEach>
 </table>
 <br>
@@ -37,7 +37,7 @@
   </c:when>
   <c:when test="${sessionScope.user.role == 1}">
     <a href="/shop/account?action=logout"><button>Выход</button></a>
-    <a href="/shop/controller?param=addgood"><button>Добавить товар</button></a>
+    <a href="/shop/controller?param=addGood"><button>Добавить товар</button></a>
   </c:when>
 </c:choose>
 </body>

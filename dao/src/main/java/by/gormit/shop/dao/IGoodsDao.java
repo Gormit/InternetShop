@@ -8,8 +8,7 @@ import java.util.List;
 
 
 
-public interface IGoodsDao extends Dao<Goods>
-{
+public interface IGoodsDao extends Dao<Goods> {
     Goods get(int id);
     List<Goods> getList();
     boolean add(Goods good);

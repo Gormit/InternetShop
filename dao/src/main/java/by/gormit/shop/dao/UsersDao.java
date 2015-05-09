@@ -4,6 +4,7 @@ import by.gormit.shop.Users;
 import by.gormit.shop.constance.Constance;
 import org.apache.log4j.Logger;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +20,8 @@ public class UsersDao extends BaseDao<Users> implements IUsersDao {
     public Users auth(String email, String pass) {
         Users user = null;
         try {
-            PreparedStatement preparedStatement = BaseDao.getBaseDaoConnection().getConnection().prepareStatement(Constance.SQL_QUERY_GET_USER_AUTH);
+            Connection connection = BaseDao.getBaseDaoConnection().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(Constance.SQL_QUERY_GET_USER_AUTH);
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, pass);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -33,6 +35,7 @@ public class UsersDao extends BaseDao<Users> implements IUsersDao {
                 user.setRole(resultSet.getInt("role"));
                 user.setBunned(resultSet.getInt("bunned"));
             }
+            connection.close();
         }
         catch (SQLException e) {
             logger.error("MySql error: " + e);
