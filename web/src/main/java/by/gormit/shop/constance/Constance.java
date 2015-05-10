@@ -11,4 +11,6 @@ public class Constance {
     public static final String WEB_PATH_LOGIN_PAGE = "/login.jsp";
     public static final String WEB_PATH_HELLO_PAGE = "/hello.jsp";
     public static final String WEB_PATH_VIEW_PAGE = "/view.jsp";
+    public static final String WEB_PATH_TODO_PAGE = "/todo.jsp";
+
 }

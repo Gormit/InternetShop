@@ -54,7 +54,7 @@
             Описание товара
         </td>
         <td>
-            ${requestScope.good.description}
+            <textarea name="description" rows="5" cols="70">${requestScope.good.description}</textarea>
         </td>
     </tr>
 
@@ -67,6 +67,11 @@
     </a>
     <a href="controller?param=delGood&id=${requestScope.good.id}">
         <button>Delete</button>
+    </a>
+</c:if>
+<c:if test="${sessionScope.user.role == 2}">
+    <a href="controller?param=addIntoDescription&id=${requestScope.good.id}">
+        <button>В корзину</button>
     </a>
 </c:if>
 

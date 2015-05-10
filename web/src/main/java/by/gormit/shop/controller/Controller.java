@@ -39,6 +39,10 @@ public class Controller extends HttpServlet {
             command = new EditGoodCommand();
         } else if (param.equals("saveEditGood")) {
             command = new SaveEditGoodCommand();
+        } else if (param.equals("addIntoDescription")) {
+            command = new ToDo();
+        } else if (param.equals("registration")) {
+            command = new ToDo();
         }
 
 
