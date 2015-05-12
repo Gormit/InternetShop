@@ -26,6 +26,7 @@
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/account/*</url-pattern>
+        <url-pattern>/controller/*</url-pattern>
     </filter-mapping>
     <filter>
         <filter-name>CharsetFilter</filter-name>

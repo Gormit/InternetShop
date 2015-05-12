@@ -13,7 +13,6 @@ import java.util.List;
 public class Services {
 
     public List<Goods> getGoods() {
-
         return new GoodsDao().getList();
     }
 
@@ -45,5 +44,21 @@ public class Services {
         new GoodsDao().update(id, good);
     }
 
+
+    public boolean addUser(Users user) {
+        return new UsersDao().add(user);
+    }
+
+    public List getUsers() {
+        return new UsersDao().getList();
+    }
+
+    public Users getUserById(int id) {
+        return new UsersDao().get(id);
+    }
+
+    public void changeBunStatus(Users user) {
+        new UsersDao().changeBunStatus(user);
+    }
 
 }

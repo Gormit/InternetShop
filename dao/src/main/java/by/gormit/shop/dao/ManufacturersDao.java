@@ -20,7 +20,7 @@ public class ManufacturersDao extends BaseDao<Manufacturers> implements IManufac
     public Manufacturers get(int id) {
         Manufacturers manufacturers = null;
         try {
-            Connection connection = BaseDao.getBaseDaoConnection().getConnection();
+            Connection connection = BaseDao.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(Constance.SQL_QUERY_GET_MANUFACTURER);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();

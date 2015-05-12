@@ -3,6 +3,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=cp1251">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <script src="js/bootstrap.min.js" type="javascript"></script>
     <title>Добавление товара</title>
 </head>
 <body>
@@ -40,11 +43,11 @@
         </tr>
         <tr>
             <td>Сколько погрузить на склад</td>
-            <td><input type="text" name="count"></td>
+            <td><input type="text" name="count">${requestScope.invalidCount}</td>
         </tr>
         <tr>
             <td>Цена</td>
-            <td><input type="text" name="price"></td>
+            <td><input type="text" name="price">${requestScope.invalidCount}</td>
         </tr>
         <tr>
             <td>Описание</td>
@@ -53,6 +56,6 @@
     </table>
     <input type="submit" name="Добавить" value="Save">
 </form>
-<a href="/shop/controller"><button>Назад в Магазин</button></a>
+<a href="/shop/"><button>Назад в Магазин</button></a>
 </body>
 </html>

@@ -40,12 +40,14 @@ public class AccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Users user = new Services().getAuthentication(req.getParameter("mail"), req.getParameter("password"));
-        if (user != null) {
+        if (user != null && user.getBunned() == 0) {
             HttpSession session = req.getSession();
             session.setAttribute("user",user);
             ArrayList<Goods> goods = (ArrayList<Goods>) new Services().getGoods();
             req.setAttribute("goods", goods);
             req.getRequestDispatcher(Constance.WEB_PATH_HELLO_PAGE).forward(req, resp);
+        } else if (user.getBunned() == 1) {
+            req.getRequestDispatcher(Constance.WEB_PATH_BUN_PAGE).forward(req, resp);
         } else {
             req.setAttribute("message", "Account's Invalid");
             req.getRequestDispatcher(Constance.WEB_PATH_LOGIN_PAGE).forward(req, resp);

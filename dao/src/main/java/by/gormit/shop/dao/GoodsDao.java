@@ -17,10 +17,9 @@ public class GoodsDao extends BaseDao<Goods> implements IGoodsDao{
     private static final Logger logger = Logger.getLogger(GoodsDao.class);
 
     public Goods get(int id) {
-
         Goods good = null;
         try {
-            Connection connection = BaseDao.getBaseDaoConnection().getConnection();
+            Connection connection = BaseDao.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(Constance.SQL_QUERY_GET_GOOD_BY_ID);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -45,7 +44,7 @@ public class GoodsDao extends BaseDao<Goods> implements IGoodsDao{
     public List<Goods> getList() {
         List<Goods> goods = new ArrayList<Goods>();
         try {
-            Connection connection = BaseDao.getBaseDaoConnection().getConnection();
+            Connection connection = BaseDao.getConnection();
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(Constance.SQL_QUERY_GET_GOODS);
             while (result.next()) {
@@ -68,10 +67,15 @@ public class GoodsDao extends BaseDao<Goods> implements IGoodsDao{
         return goods;
     }
 
+    /**
+     *
+     * @param good
+     * @return
+     */
     public boolean add(Goods good) {
         try {
             int i = 1;
-            Connection connection = BaseDao.getBaseDaoConnection().getConnection();
+            Connection connection = BaseDao.getConnection();
 
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(Constance.SQL_QUERY_GET_LAST_GOOD_ID);
@@ -97,7 +101,7 @@ public class GoodsDao extends BaseDao<Goods> implements IGoodsDao{
 
     public void delete(int id) {
         try {
-            Connection connection = BaseDao.getBaseDaoConnection().getConnection();
+            Connection connection = BaseDao.getConnection();
             PreparedStatement preStatement = connection.prepareStatement(Constance.SQL_QUERY_DELETE_GOOD);
             preStatement.setInt(1, id);
             preStatement.executeUpdate();
@@ -109,7 +113,7 @@ public class GoodsDao extends BaseDao<Goods> implements IGoodsDao{
 
     public void update(int id, Goods good) {
         try {
-            Connection connection = BaseDao.getBaseDaoConnection().getConnection();
+            Connection connection = BaseDao.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(Constance.SQL_QUERY_UPDATE_GOOD);
             preparedStatement.setString(1, good.getName());
             preparedStatement.setInt(2, good.getCategory());
@@ -127,7 +131,7 @@ public class GoodsDao extends BaseDao<Goods> implements IGoodsDao{
 
     public int getId(String name) {
         try {
-            Connection connection = GoodsDao.getBaseDaoConnection().getConnection();
+            Connection connection = GoodsDao.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(Constance.SQL_QUERY_GET_GOOD_ID);
             preparedStatement.setString(1, name);
             ResultSet resultSet = preparedStatement.executeQuery();

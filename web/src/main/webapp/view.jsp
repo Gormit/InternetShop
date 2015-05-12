@@ -4,6 +4,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=cp1251">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <script src="js/bootstrap.min.js" type="javascript"></script>
     <title>Insert title here</title>
 </head>
 <body>
@@ -38,7 +41,14 @@
             Есть на складе
         </td>
         <td>
-            ${requestScope.good.count}
+            <c:choose>
+                <c:when test="${requestScope.good.count > 0}">
+                    ${requestScope.good.count}
+                </c:when>
+                <c:otherwise>
+                    <span style="color: red; ">Нет этой фигни на складе</span>
+                </c:otherwise>
+            </c:choose>
         </td>
     </tr>
     <tr>
@@ -59,7 +69,9 @@
     </tr>
 
 </table>
-<a href="/shop/controller"><button>Назад в Магазин</button></a>
+<a href="/shop/">
+    <button>Назад в Магазин</button>
+</a>
 
 <c:if test="${sessionScope.user.role == 1}">
     <a href="controller?param=editGood&id=${requestScope.good.id}">
@@ -70,9 +82,18 @@
     </a>
 </c:if>
 <c:if test="${sessionScope.user.role == 2}">
-    <a href="controller?param=addIntoDescription&id=${requestScope.good.id}">
-        <button>В корзину</button>
-    </a>
+    <c:choose>
+        <c:when test="${requestScope.good.count > 0}">
+            <a href="controller?param=addIntoOrder&id=${requestScope.good.id}">
+                <button>В корзину</button>
+            </a>
+        </c:when>
+        <c:otherwise>
+            <a href="controller?param=addIntoOrder&id=${requestScope.good.id}">
+                <button disabled="disabled">В корзину</button>
+            </a>
+        </c:otherwise>
+    </c:choose>
 </c:if>
 
 </body>

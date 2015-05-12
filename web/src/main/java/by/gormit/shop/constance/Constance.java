@@ -12,5 +12,9 @@ public class Constance {
     public static final String WEB_PATH_HELLO_PAGE = "/hello.jsp";
     public static final String WEB_PATH_VIEW_PAGE = "/view.jsp";
     public static final String WEB_PATH_TODO_PAGE = "/todo.jsp";
+    public static final String WEB_PATH_REGISTRATION_PAGE = "/registration.jsp";
+    public static final String WEB_PATH_THANKS_PAGE = "/thanks.jsp";
+    public static final String WEB_PATH_USERS_LIST_PAGE = "/userList.jsp";
+    public static final String WEB_PATH_BUN_PAGE = "/bun.jsp";
 
 }

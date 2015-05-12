@@ -3,6 +3,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=cp1251">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <script src="js/bootstrap.min.js" type="javascript"></script>
     <title>Редактирование товара</title>
 </head>
 <body>
@@ -41,11 +44,11 @@
         </tr>
         <tr>
             <td>Сколько погрузить на склад</td>
-            <td><input type="text" name="count" value="${requestScope.good.count}"></td>
+            <td><input type="text" name="count" value="${requestScope.good.count}">${requestScope.invalidCount}</td>
         </tr>
         <tr>
             <td>Цена</td>
-            <td><input type="text" name="price" value="${requestScope.good.price}"></td>
+            <td><input type="text" name="price" value="${requestScope.good.price}">${requestScope.invalidCount}</td>
         </tr>
         <tr>
             <td>Описание</td>
@@ -54,7 +57,7 @@
     </table>
     <input type="submit" name="Применить" value="Save">
 </form>
-<a href="/shop/controller">
+<a href="/shop/">
     <button>Назад в Магазин</button>
 </a>
 </body>

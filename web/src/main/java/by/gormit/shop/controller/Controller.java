@@ -25,24 +25,31 @@ public class Controller extends HttpServlet {
         Command command = null;
         if (param == null) {
             command = new HelloCommand();
-        } else if (param.equals("login")) {
+        } else if (param.equalsIgnoreCase("login")) {
             command = new LoginCommand();
-        } else if (param.equals("addGood")) {
+        } else if (param.equalsIgnoreCase("addGood")) {
             command = new AddGoodCommand();
-        } else if (param.equals("saveGood")) {
+        } else if (param.equalsIgnoreCase("saveGood")) {
             command = new SaveGoodCommand();
-        } else if (param.equals("delGood")) {
+        } else if (param.equalsIgnoreCase("delGood")) {
             req.setAttribute("id", req.getParameter("id"));
             command = new DelGoodCommand();
-        } else if (param.equals("editGood")) {
+        } else if (param.equalsIgnoreCase("editGood")) {
             req.setAttribute("id", req.getParameter("id"));
             command = new EditGoodCommand();
-        } else if (param.equals("saveEditGood")) {
+        } else if (param.equalsIgnoreCase("saveEditGood")) {
             command = new SaveEditGoodCommand();
-        } else if (param.equals("addIntoDescription")) {
+        } else if (param.equalsIgnoreCase("addIntoDescription")) {
             command = new ToDo();
-        } else if (param.equals("registration")) {
-            command = new ToDo();
+        } else if (param.equalsIgnoreCase("registration")) {
+            command = new RegistrationCommand();
+        } else if (param.equalsIgnoreCase("saveNewUser")) {
+            command = new SaveNewUserCommand();
+        } else if (param.equalsIgnoreCase("userList")) {
+            command = new UserListCommand();
+        } else if (param.equalsIgnoreCase("changeBunStatus")) {
+            req.setAttribute("id", req.getParameter("id"));
+            command = new ChangeBunStatus();
         }
 
 

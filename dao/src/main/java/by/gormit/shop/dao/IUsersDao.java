@@ -15,4 +15,5 @@ public interface IUsersDao extends Dao<Users>
     void update(int id, Users user);
     int getId(String name);
     Users auth(String email, String pass);
+    void changeBunStatus(Users user);
 }

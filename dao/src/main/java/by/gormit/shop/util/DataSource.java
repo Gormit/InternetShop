@@ -47,7 +47,7 @@ public class DataSource {
 
     }
 
-    public static DataSource getInstance() {
+    public static synchronized DataSource getInstance() {
         if (datasource == null) {
             datasource = new DataSource();
             return datasource;

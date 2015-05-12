@@ -20,7 +20,7 @@ public class CategoriesDao extends BaseDao<Categories> implements ICategoriesDao
     public Categories get(int id) {
         Categories category = null;
         try {
-            Connection connection = BaseDao.getBaseDaoConnection().getConnection();
+            Connection connection = BaseDao.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(Constance.SQL_QUERY_GET_CATEGORY);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
