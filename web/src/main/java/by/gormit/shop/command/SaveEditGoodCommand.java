@@ -25,9 +25,14 @@ public class SaveEditGoodCommand extends Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) {
 
         Pattern pattern = Pattern.compile("^[0-9]+");
-        Matcher matcher = pattern.matcher(request.getParameter("count"));
-        if (!matcher.matches()) {
-            request.setAttribute("invalidCount", "Только цифровые значения");
+        Matcher matcher1 = pattern.matcher(request.getParameter("count"));
+        Matcher matcher2 = pattern.matcher(request.getParameter("price"));
+        if (!matcher1.matches() || !matcher2.matches()) {
+            request.setAttribute("invalidValue", "Алё, только циферки...");
+            if (request.getParameter("id") != null) {
+                Goods good = new Services().getGood(Integer.parseInt(request.getParameter("id")));
+                request.setAttribute("good", good);
+            }
             RequestDispatcher dispatcher = request.getRequestDispatcher(Constance.WEB_PATH_TO_EDIT_GOOD_FORM);
             try {
                 dispatcher.forward(request, response);
@@ -44,7 +49,12 @@ public class SaveEditGoodCommand extends Command {
             good.setCount(Integer.parseInt(request.getParameter("count")));
             good.setPrice(Integer.parseInt(request.getParameter("price")));
             good.setDescription(request.getParameter("description"));
-            new Services().updateGood(Integer.parseInt(request.getParameter("id")), good);
+            if (request.getParameter("id") == null) {
+                new Services().addGood(good);
+            }
+            if (request.getParameter("id") != null) {
+                new Services().updateGood(Integer.parseInt(request.getParameter("id")), good);
+            }
             ArrayList<Goods> goods = (ArrayList<Goods>) new Services().getGoods();
             request.setAttribute("goods", goods);
             RequestDispatcher dispatcher = request.getRequestDispatcher(Constance.WEB_PATH_HELLO_PAGE);

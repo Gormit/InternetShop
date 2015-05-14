@@ -27,10 +27,6 @@ public class Controller extends HttpServlet {
             command = new HelloCommand();
         } else if (param.equalsIgnoreCase("login")) {
             command = new LoginCommand();
-        } else if (param.equalsIgnoreCase("addGood")) {
-            command = new AddGoodCommand();
-        } else if (param.equalsIgnoreCase("saveGood")) {
-            command = new SaveGoodCommand();
         } else if (param.equalsIgnoreCase("delGood")) {
             req.setAttribute("id", req.getParameter("id"));
             command = new DelGoodCommand();
@@ -39,12 +35,9 @@ public class Controller extends HttpServlet {
             command = new EditGoodCommand();
         } else if (param.equalsIgnoreCase("saveEditGood")) {
             command = new SaveEditGoodCommand();
-        } else if (param.equalsIgnoreCase("addIntoDescription")) {
-            command = new ToDo();
-        } else if (param.equalsIgnoreCase("registration")) {
-            command = new RegistrationCommand();
-        } else if (param.equalsIgnoreCase("saveNewUser")) {
-            command = new SaveNewUserCommand();
+        } else if (param.equalsIgnoreCase("addIntoOrder")) {
+            req.setAttribute("id", req.getParameter("id"));
+            command = new AddIntoOrderCommand();
         } else if (param.equalsIgnoreCase("userList")) {
             command = new UserListCommand();
         } else if (param.equalsIgnoreCase("changeBunStatus")) {

@@ -92,7 +92,7 @@ public class GoodsDao extends BaseDao<Goods> implements IGoodsDao{
             preStatement.setString(7, good.getDescription());
             preStatement.executeUpdate();
             connection.close();
-            return true;
+            return  true;
         } catch (SQLException e) {
             logger.error(e);
             return false;

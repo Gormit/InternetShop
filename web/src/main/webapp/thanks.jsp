@@ -11,14 +11,31 @@
 </head>
 <body>
 
-<h1> БЛА БЛА СПС ЗА РЕГИСТРАЦУИЮ!!!</h1>
+<div class="container">
 
-<img src="img/pop.gif" class="img-polaroid">
+    <jsp:include page="header.jsp"/>
 
-<br>
+    <div class="row" id="content">
 
-<a href="/shop/controller?param=login" class="btn btn-info">Иди залогинься</a>
+        <jsp:include page="sidebar.jsp"/>
 
+        <div class="span9">
+
+            <h1> БЛА БЛА СПС ЗА РЕГИСТРАЦУИЮ!!!</h1>
+
+            <img src="img/pop.gif" class="img-polaroid">
+
+            <br>
+
+            <a href="/shop/controller?param=login" class="btn btn-info">Иди залогинься</a>
+
+        </div>
+
+    </div>
+
+    <jsp:include page="footer.jsp"/>
+
+</div>
 
 </body>
 </html>

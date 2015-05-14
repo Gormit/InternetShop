@@ -10,37 +10,56 @@
     <title>Users List page</title>
 </head>
 <body>
-<div class="span12">
-    <table id="hello-table" class="table table-striped table-hover">
-        <thead>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>Мыло</th>
-        <th>Пароль</th>
-        <th>Вердикт</th>
-        </thead>
-        <tbody>
-        <c:forEach var="user" items="${requestScope.users}">
-            <tr>
-                <td>${user.firstname}</td>
-                <td>${user.lastname}</td>
-                <td>${user.mail}</td>
-                <td>${user.password}</td>
-                <td>
-                    <c:choose>
-                        <c:when test="${user.bunned == 1}">
-                            <a href="/shop/controller?param=changeBunStatus&id=${user.id}" class="btn btn-success">Помиловать</a>
-                        </c:when>
-                        <c:when test="${user.bunned == 0}">
-                            <a href="/shop/controller?param=changeBunStatus&id=${user.id}" class="btn btn-danger">Казнить</a>
-                        </c:when>
-                    </c:choose>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-    <a href="/shop/" class="btn btn-info">Назад в Магазин</a>
+
+<div class="container">
+
+    <jsp:include page="header.jsp"/>
+
+    <div class="row" id="content">
+
+        <jsp:include page="sidebar.jsp"/>
+
+        <div class="span9">
+
+            <table id="hello-table" class="table table-striped table-hover">
+                <thead>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Мыло</th>
+                <th>Пароль</th>
+                <th>Вердикт</th>
+                </thead>
+                <tbody>
+                <c:forEach var="user" items="${requestScope.users}">
+                    <tr>
+                        <td>${user.firstname}</td>
+                        <td>${user.lastname}</td>
+                        <td>${user.mail}</td>
+                        <td>${user.password}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${user.bunned == 1}">
+                                    <a href="/shop/controller?param=changeBunStatus&id=${user.id}"
+                                       class="btn btn-success">Помиловать</a>
+                                </c:when>
+                                <c:when test="${user.bunned == 0}">
+                                    <a href="/shop/controller?param=changeBunStatus&id=${user.id}"
+                                       class="btn btn-danger">Казнить</a>
+                                </c:when>
+                            </c:choose>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+            <a href="/shop/" class="btn btn-info">Назад в Магазин</a>
+
+        </div>
+
+    </div>
+
+    <jsp:include page="footer.jsp"/>
+
 </div>
 
 </body>

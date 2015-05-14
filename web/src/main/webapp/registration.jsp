@@ -9,34 +9,64 @@
     <title>Редактирование товара</title>
 </head>
 <body>
-<form action="/shop/registration" method="post">
-    <h2>${message }</h2><br>
-    <table border="1">
-        <tr>
-            <td>Ваше Имя</td>
-            <td><input type="text" name="firstname"></td>
-        </tr>
-        <tr>
-            <td>Ваша фамилия</td>
-            <td>
-                <input type="text" name="lastname">
-            </td>
-        </tr>
-        <tr>
-            <td>mail</td>
-            <td>
-                <input type="text" name="mail">
-            </td>
-        </tr>
-        <tr>
-            <td>password</td>
-            <td><input type="password" name="password"></td>
-        </tr>
-    </table>
-    <input type="submit" name="Save" value="Зарегистрироваться">
-</form>
-<a href="/shop/">
-    <button>Назад в Магазин</button>
-</a>
+
+<div class="container">
+
+    <jsp:include page="header.jsp"/>
+
+    <div class="row" id="content">
+
+        <jsp:include page="sidebar.jsp"/>
+
+        <div class="span9">
+
+            <legend>Registration</legend>
+            <h3>${message }</h3><br>
+
+            <form method="post" action="/shop/registration" class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">Имя</label>
+
+                    <div class="controls">
+                        <input type="text" name="firstname" placeholder="Firstname">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Фамилия</label>
+
+                    <div class="controls">
+                        <input type="text" name="lastname" placeholder="Lastname">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Email</label>
+
+                    <div class="controls">
+                        <input type="text" name="mail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Password</label>
+
+                    <div class="controls">
+                        <input type="password" name="password" id="inputPassword" placeholder="Password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn btn-info">Зарегистрироваться</button>
+                        <a href="/shop/" class="btn btn-info">Назад в Магазин</a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+    <jsp:include page="footer.jsp"/>
+
+</div>
+
 </body>
 </html>

@@ -12,40 +12,12 @@
 
 <div class="container">
 
-    <div class="row" id="header">
-        <div class="span12">
-            <h2>
-                <c:choose>
-                    <c:when test="${sessionScope.user != null}">
-                        Добро пожаловать ${sessionScope.user.firstname}
-                    </c:when>
-                    <c:otherwise>
-                        Добро пожаловать в наш Магазин!!
-                    </c:otherwise>
-                </c:choose>
-            </h2>
-            <c:choose>
-                <c:when test="${sessionScope.user == null}">
-                    <a href="/shop/controller?param=login" class="btn btn-info">Вход</a>
-
-                    <a href="registration.jsp" class="btn btn-info">Регистрация</a>
-                </c:when>
-            </c:choose>
-            <c:choose>
-                <c:when test="${sessionScope.user.role == 2}">
-                    <a href="/shop/account?action=logout" class="btn btn-info">Выход</a>
-                </c:when>
-                <c:when test="${sessionScope.user.role == 1}">
-                    <a href="/shop/account?action=logout" class="btn btn-info">Выход</a>
-                    <a href="/shop/controller?param=addGood" class="btn btn-info">Добавить товар</a>
-                    <a href="/shop/controller?param=userList" class="btn btn-danger">Наказать</a>
-                </c:when>
-            </c:choose>
-        </div>
-    </div>
+    <jsp:include page="header.jsp"/>
 
     <div class="row" id="content">
-        <div class="span2 sidebar">sidebar</div>
+
+        <jsp:include page="sidebar.jsp"/>
+
         <div class="span9">
 
             <table id="hello-table" class="table table-striped table-hover">
@@ -59,7 +31,7 @@
                     <tr>
                         <td><a href="/shop/view?id=${good.id}">${good.name}</a></td>
                         <td>${good.price}</td>
-                        <td>
+                        <td id="count">
                             <c:choose>
                                 <c:when test="${good.count > 0}">
                                     ${good.count}
@@ -69,6 +41,22 @@
                                 </c:otherwise>
                             </c:choose>
                         </td>
+                        <td>
+                            <c:if test="${sessionScope.user.role == 2}">
+                                <c:choose>
+                                    <c:when test="${good.count > 0}">
+                                        <a href="controller?param=addIntoOrder&id=${good.id}" class="btn btn-success">Купить</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="#" class="btn btn-danger disabled ">Купить</a>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:if>
+                            <c:if test="${sessionScope.user.role == 1}">
+                                <a href="controller?param=editGood&id=${good.id}" class="btn btn-warning">Edit</a>
+                                <a href="controller?param=delGood&id=${good.id}" class="btn btn-danger">Delete</a>
+                            </c:if>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -77,11 +65,7 @@
         </div>
     </div>
 
-    <div class="row" id="footer">
-        <div class="span12">
-            footer
-        </div>
-    </div>
+    <jsp:include page="footer.jsp"/>
 
 </div>
 

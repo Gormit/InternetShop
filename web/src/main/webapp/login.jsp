@@ -11,32 +11,49 @@
 </head>
 <body>
 
+<div class="container">
 
-<legend>Login</legend>
-${message }<br>
+    <jsp:include page="header.jsp"/>
 
-<form method="post" action="account" class="form-horizontal">
-    <div class="control-group">
-        <label class="control-label">Email</label>
+    <div class="row" id="content">
 
-        <div class="controls" >
-            <input type="text" name="mail" placeholder="Email">
+        <jsp:include page="sidebar.jsp"/>
+
+        <div class="span9">
+
+            <legend>Login</legend>
+            <h3>${message }</h3><br>
+
+            <form method="post" action="account" class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">Email</label>
+
+                    <div class="controls">
+                        <input type="text" name="mail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Password</label>
+
+                    <div class="controls">
+                        <input type="password" name="password" id="inputPassword" placeholder="Password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn btn-info">Войти</button>
+                        <a href="/shop/" class="btn btn-info">Назад в Магазин</a>
+                    </div>
+                </div>
+            </form>
+
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label">Password</label>
 
-        <div class="controls">
-            <input type="password" name="password" id="inputPassword" placeholder="Password">
-        </div>
     </div>
-    <div class="control-group">
-        <div class="controls">
-            <button type="submit" class="btn btn-info">Войти</button>
-            <a href="/shop/" class="btn btn-info">Назад в Магазин</a>
-        </div>
-    </div>
-</form>
+
+    <jsp:include page="footer.jsp"/>
+
+</div>
 
 </body>
 </html>

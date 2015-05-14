@@ -46,7 +46,7 @@ public class AccountController extends HttpServlet {
             ArrayList<Goods> goods = (ArrayList<Goods>) new Services().getGoods();
             req.setAttribute("goods", goods);
             req.getRequestDispatcher(Constance.WEB_PATH_HELLO_PAGE).forward(req, resp);
-        } else if (user.getBunned() == 1) {
+        } else if (user != null && user.getBunned() == 1) {
             req.getRequestDispatcher(Constance.WEB_PATH_BUN_PAGE).forward(req, resp);
         } else {
             req.setAttribute("message", "Account's Invalid");

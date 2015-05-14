@@ -32,8 +32,8 @@ public class Services {
         return new ManufacturersDao().get(id);
     }
 
-    public boolean addGood(Goods good) {
-        return new GoodsDao().add(good);
+    public void addGood(Goods good) {
+        new GoodsDao().add(good);
     }
 
     public void delGood(int id) {
