@@ -37,7 +37,7 @@ public class Controller extends HttpServlet {
             command = new SaveEditGoodCommand();
         } else if (param.equalsIgnoreCase("addIntoOrder")) {
             req.setAttribute("id", req.getParameter("id"));
-            command = new AddIntoOrderCommand1();
+            command = new AddIntoOrderCommand();
         } else if (param.equalsIgnoreCase("userList")) {
             command = new UserListCommand();
         } else if (param.equalsIgnoreCase("changeBunStatus")) {
