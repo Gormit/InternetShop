@@ -1,0 +1,47 @@
+body {
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+}
+
+#header {
+    background-color: #002a80;
+    color: #ffffff;
+    height: 50px;
+}
+
+.sidebar {
+    background-color: #dbc59e;
+    margin: 10px 0px;
+    padding: 5px;
+}
+
+#hello-table{
+    width: auto;
+    margin: 10px 0px;
+}
+
+#hello-table thead {
+    background-color: #149bdf;
+    text-align: center;
+}
+
+#count {
+    text-align: center;
+}
+
+#textarea{
+    width: 5cm;
+    height: 2cm;
+}
+
+#view-table {
+    width: auto;
+    margin: 10px 0px;
+}
+
+#footer {
+    background: #7aba7b;
+    color: #002a80;
+    height: 50px;
+}
+
