@@ -45,7 +45,7 @@
                             <c:if test="${sessionScope.user.role == 2}">
                                 <c:choose>
                                     <c:when test="${good.count > 0}">
-                                        <a href="controller?param=addIntoOrder&id=${good.id}" class="btn btn-success">Купить</a>
+                                        <a href="controller?param=buy&id=${good.id}" class="btn btn-success">Купить</a>
                                     </c:when>
                                     <c:otherwise>
                                         <a href="#" class="btn btn-danger disabled ">Купить</a>
