@@ -5,6 +5,8 @@ package by.gormit.shop.constance;
  */
 public class Constance {
 
+    public static final String NULL = null;
+
     public static final String WEB_PATH_TO_EDIT_GOOD_FORM = "/editGood.jsp";
     public static final String WEB_PATH_INDEX_PAGE = "/index.jsp";
     public static final String WEB_PATH_LOGIN_PAGE = "/login.jsp";

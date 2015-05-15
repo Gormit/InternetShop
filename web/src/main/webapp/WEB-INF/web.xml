@@ -20,11 +20,11 @@
     </servlet-mapping>
 
     <filter>
-        <filter-name>AdminFilter</filter-name>
-        <filter-class>by.gormit.shop.filter.AdminFilter</filter-class>
+        <filter-name>SessionFilter</filter-name>
+        <filter-class>by.gormit.shop.filter.SessionFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>AdminFilter</filter-name>
+        <filter-name>SessionFilter</filter-name>
         <url-pattern>/account/*</url-pattern>
         <url-pattern>/controller/*</url-pattern>
     </filter-mapping>

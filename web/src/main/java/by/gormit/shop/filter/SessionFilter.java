@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by Марина on 09.05.2015.
  */
-public class AdminFilter implements Filter {
+public class SessionFilter implements Filter {
 
     public void init(FilterConfig filterConfig) throws ServletException {
 

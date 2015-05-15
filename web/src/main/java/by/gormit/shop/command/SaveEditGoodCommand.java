@@ -29,7 +29,7 @@ public class SaveEditGoodCommand extends Command {
         Matcher matcher2 = pattern.matcher(request.getParameter("price"));
         if (!matcher1.matches() || !matcher2.matches()) {
             request.setAttribute("invalidValue", "Алё, только циферки...");
-            if (request.getParameter("id") != null) {
+            if (!request.getParameter("id").equals("")) {
                 Goods good = new Services().getGood(Integer.parseInt(request.getParameter("id")));
                 request.setAttribute("good", good);
             }
@@ -49,10 +49,10 @@ public class SaveEditGoodCommand extends Command {
             good.setCount(Integer.parseInt(request.getParameter("count")));
             good.setPrice(Integer.parseInt(request.getParameter("price")));
             good.setDescription(request.getParameter("description"));
-            if (request.getParameter("id") == null) {
+            if ((request.getParameter("id")).equals("")) {
                 new Services().addGood(good);
             }
-            if (request.getParameter("id") != null) {
+            if (!request.getParameter("id").equals("")) {
                 new Services().updateGood(Integer.parseInt(request.getParameter("id")), good);
             }
             ArrayList<Goods> goods = (ArrayList<Goods>) new Services().getGoods();
