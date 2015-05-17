@@ -4,20 +4,20 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=cp1251">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/bootstrap.min.css">
-    <script src="js/bootstrap.min.js" type="javascript"></script>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/bootstrap.min.css">
+    <script src="../js/bootstrap.min.js" type="javascript"></script>
     <title>Users List page</title>
 </head>
 <body>
 
 <div class="container">
 
-    <jsp:include page="header.jsp"/>
+    <jsp:include page="../header.jsp"/>
 
     <div class="row" id="content">
 
-        <jsp:include page="sidebar.jsp"/>
+        <jsp:include page="../sidebar.jsp"/>
 
         <div class="span9">
 
@@ -58,7 +58,7 @@
 
     </div>
 
-    <jsp:include page="footer.jsp"/>
+    <jsp:include page="../footer.jsp"/>
 
 </div>
 
